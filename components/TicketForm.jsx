@@ -1,51 +1,66 @@
-import { View, TextInput, StyleSheet, Text, Button } from "react-native";
+import { View, StyleSheet, Button } from "react-native";
 import { ThemedView } from "./ThemedView";
 import { ThemedText } from "./ThemedText";
 import React, { useEffect, useState } from 'react';
+import { Text, TextInput } from "@react-native-material/core";
+import { Formik } from 'formik';
 
 export default function TicketForm(){
 
-    const [message, setMessage] = useState("");
-    const [ticketType, setTicketType] = useState("");
-    const [ticketStatus, setTicketStatus] = useState("");
-
     return (
-        <ThemedView style={styles.container}> 
-            <Text> Ticket Description</Text>
-            <TextInput style={styles.textBox}
-                value={message}
-                onChangeText={(text) => setMessage(text)}
-            />
-            <Text> Ticket Type</Text>
-            <TextInput style={styles.textBox}
-                value={ticketType}
-                onChangeText={(text) => setTicketType(text)}
-            />
-            <Text> Ticket Status</Text>
-            <TextInput style={styles.textBox}
-                value={ticketStatus}
-                onChangeText={(text) => setTicketStatus(text)}
-            />
-        </ThemedView>
+        <Formik initialValues={{ TicketDesc: '' }} onSubmit={values => console.log(values)}>
+
+        {({ handleChange, handleBlur, handleSubmit, values }) => (
+
+        <View style={styles.container}> 
+            <TextInput 
+                style={styles.textBox}
+                label="Ticket Desc" 
+                variant="standard" 
+                value={values.TicketDesc} 
+                onChangeText={handleChange('TicketDesc')} 
+                onBlur={handleBlur('TicketDesc')}/>
+            <TextInput 
+                style={styles.textBox}
+                label="Ticket Type" 
+                variant="standard"  
+                value={values.TicketType}
+                onChangeText={handleChange('TicketType')} 
+                onBlur={handleBlur('TicketType')}/>
+            <TextInput 
+                style={styles.textBox}
+                label="Ticket Status" 
+                variant="standard" 
+                value={values.TicketStatus} 
+                onChangeText={handleChange('TicketStatus')} 
+                onBlur={handleBlur('TicketStatus')}/>
+
+            <Button style={styles.submitButton} onPress={handleSubmit} title="Create Ticket"></Button>
+        </View>
+         )}
+
+         </Formik>
     );
 }
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        backgroundColor: 'gray',
+        flex:0.75,
+        backgroundColor: 'white',
         color:'white',
         textAlign:'center',
-        height: '50%',
-        width:'80%',
+        width: 250,
         position: 'relative',
-        flexDirection: 'row',
+        flexDirection: 'column',
         flexWrap : 'wrap',
-        rowGap: 10,
-        columnGap:25,
-        alignContent: 'flex-start',
+        alignContent: 'flex-centre',
+        Gap: 10,
+        padding: 20
     },
     textBox:{
-        borderWidth: 1
+        width: '100%'
+    },
+    submitButton:{
+        height:4
     }
 });

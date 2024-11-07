@@ -10,16 +10,13 @@ export default function createTicket(){
                 Create Ticket
             </ThemedText>
         <TicketForm></TicketForm>
-    
-                <Button style={styles.submitButton} title="Create Ticket"></Button>
-        
     </SafeAreaView>);
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#228B22",
+        backgroundColor: "green",
         alignItems: "center",
         justifyContent: "center",
     },
@@ -38,8 +35,5 @@ const styles = StyleSheet.create({
     },
     header:{
         margin:"5%"
-    },
-    submitButton:{
-        height:4
     }
 });
