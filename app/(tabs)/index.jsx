@@ -6,31 +6,26 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useEffect, useState } from 'react';
 import fetchData from '@/api/apibase';
 import axios from 'axios';
-  
-interface user{
-  userId : string;
-  userName: string;
-  userRole: string;
-}
 
+
+  
 export default function HomeScreen(){
 
-  const[data,setData] = useState<user[]>([]);
-
+  const[data,setData] = useState([]);
   
   const getUserData = async () => {
-  try {
-    const response = await axios.get('http://192.168.1.10:8080/getAllUser');
-    console.log(response);
-    setData(response.data);
+    try {
+      const response = await axios.get('http://192.168.1.10:8080/getAllUser');
+      console.log(response);
+      setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
-  }
+    }
   };
   
+
   useEffect(
     () => { 
-      setData([{userId:'0',userName:'test',userRole:'test'}]);
       getUserData();
     },[]
   );
@@ -42,12 +37,16 @@ export default function HomeScreen(){
             <Text style={styles.container}>
                 Welcome to White field Mudra Ph-4
             </Text>
-            <Card value={data[0].userId}>
+            {data.map(dat=>(
+             <ThemedView key={dat.userId}>
+            <Card value={dat.userId}>
             </Card>
-            <Card value={data[0].userName}>
+            <Card value={dat.userName}>
             </Card>
-            <Card value={data[0].userRole}>
+            <Card value={dat.userRole}>
             </Card>
+            </ThemedView>))
+            } 
         </ThemedView>
         </SafeAreaView>        
             );
