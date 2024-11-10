@@ -14,7 +14,7 @@ export default function Card(props:values){
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: 'grey',
+        backgroundColor: 'white',
         height: 128,
         width: 300,
         margin: '5%'

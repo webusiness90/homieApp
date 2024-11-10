@@ -1,4 +1,4 @@
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 import { ThemedView } from '@/components/ThemedView';
 import Card from '@/components/Card'
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -32,33 +32,33 @@ export default function HomeScreen(){
 
     return (
       
-       <SafeAreaView>
-        <ThemedView>
-            <Text style={styles.container}>
+       <SafeAreaView style={styles.container}>
+        <View>
+            <Text >
                 Welcome to White field Mudra Ph-4
             </Text>
             {data.map(dat=>(
-             <ThemedView key={dat.userId}>
+             <View key={dat.userId}>
             <Card value={dat.userId}>
             </Card>
             <Card value={dat.userName}>
             </Card>
             <Card value={dat.userRole}>
             </Card>
-            </ThemedView>))
+            </View>))
             } 
-        </ThemedView>
+        </View>
         </SafeAreaView>        
             );
 }
 
 const styles = StyleSheet.create({
-    container:{
-        backgroundColor: 'black',
-        color:'white',
-        height: 30,
-        textAlign:'center'
-    }
+  container: {
+    flex: 1,
+    backgroundColor: "green",
+    alignItems: "center",
+    justifyContent: "center",
+  }
 });
 
 
