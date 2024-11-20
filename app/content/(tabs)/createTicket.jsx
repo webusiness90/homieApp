@@ -1,7 +1,7 @@
 import { SafeAreaView  } from 'react-native-safe-area-context';
 import { StyleSheet, Button, Text } from 'react-native';
-import {ThemedText, ThemedView} from '../../components/ThemedText'
-import  TicketForm from '../../components/TicketForm'
+import {ThemedText, ThemedView} from '../../../components/ThemedText'
+import  TicketForm from '@/components/TicketForm'
 
 export default function createTicket(){
     return (
