@@ -37,9 +37,12 @@ const styles = StyleSheet.create({
         alignContent: 'stretch',
         rowGap: 20,
         padding: 20,
-        height: 350,
         textAlign:'center',
-        borderRadius: 20
+        borderRadius: 20,
+        position:'absolute',
+        bottom:50,
+        top:100
+
     },
     textBox:{
         width: '100%'

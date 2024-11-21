@@ -38,16 +38,6 @@ export default function TicketForm(){
         {({ handleChange, handleBlur, handleSubmit, values, errors, isValid }) => (
 
         <View style={styles.container}>
-            <Text style={styles.textStyle}>Ticket Desc</Text> 
-            <TextInput 
-                name="ticketDesc"
-                style={styles.textBox}
-                multiline={true}
-                variant="standard" 
-                value={values.ticketDesc} 
-                onChangeText={handleChange('ticketDesc')} 
-                onBlur={handleBlur('ticketDesc')}/>
-                {errors.ticketDesc && <Text style={{ fontSize: 10, color: 'red' }}>{errors.ticketDesc}</Text>}
             <Text style={styles.textStyle}>Ticket Type</Text>     
             <Picker
                 onValueChange={(itemValue, itemIndex) =>
@@ -64,7 +54,17 @@ export default function TicketForm(){
                 <Picker.Item key='0' label='Please select' value='0'></Picker.Item>
                 {getDropDownValue(typeList)}
             </Picker>
-            
+            <Text style={styles.textStyle}>Ticket Desc</Text> 
+            <TextInput 
+                name="ticketDesc"
+                style={styles.textBox}
+                multiline={true}
+                variant="standard" 
+                value={values.ticketDesc} 
+                onChangeText={handleChange('ticketDesc')} 
+                onBlur={handleBlur('ticketDesc')}/>
+                {errors.ticketDesc && <Text style={{ fontSize: 10, color: 'red' }}>{errors.ticketDesc}</Text>}
+
             <Button style={styles.submitButton} color="green" onPress={handleSubmit} title="Create Ticket"></Button>
         </View>
          )}
@@ -76,15 +76,16 @@ export default function TicketForm(){
 const styles = StyleSheet.create({
     container:{
         backgroundColor: 'white',
-        width: 250,
         flexDirection: 'column',
         flexWrap : 'wrap',
         alignContent: 'space-evenly',
         rowGap: 20,
-        padding: 20,
-        height: 400,
+        padding: 20,        
         width:300,
-        borderRadius: 20
+        borderRadius: 20,
+        position:'absolute',
+        top:100,
+        bottom:30
     },
     textBox:{
         width: '100%'

@@ -9,7 +9,7 @@ export default function createTicket(){
             <Text style={styles.title}> 
                 Create Ticket
             </Text>
-        <TicketForm></TicketForm>
+        <TicketForm />
     </SafeAreaView>);
 }
 
@@ -21,10 +21,11 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     title: {
-        fontSize: 40,
+        fontSize: 30,
         color: "#fff",
-        marginBottom: 20,
         fontWeight: "bold",
+        position:'absolute',
+        top:30
     },
     input: {
         backgroundColor: "#fff",
@@ -32,8 +33,5 @@ const styles = StyleSheet.create({
         width: "80%",
         marginTop: 15,
         color: "#000",
-    },
-    header:{
-        margin:"5%"
     }
 });

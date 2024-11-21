@@ -35,7 +35,7 @@ export default function HomeScreen(){
        <SafeAreaView style={styles.container}>
         <View>
             <Text >
-                Welcome to White field Mudra Ph-4
+                Welcome, below are your tickets....
             </Text>
             {data.map(dat=>(
              <View key={dat.userId}>
