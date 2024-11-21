@@ -82,8 +82,9 @@ const styles = StyleSheet.create({
         alignContent: 'space-evenly',
         rowGap: 20,
         padding: 20,
-        height: 500,
-        width:300
+        height: 400,
+        width:300,
+        borderRadius: 20
     },
     textBox:{
         width: '100%'

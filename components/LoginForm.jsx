@@ -1,14 +1,12 @@
-import { View, StyleSheet, Button, Image } from "react-native";
+import { View, StyleSheet, Button } from "react-native";
 import React from 'react';
 import { Text, TextInput } from "@react-native-material/core";
+import { router } from 'expo-router';
 
 
-export default function TicketForm(){
+export default function LoginForm(){
     return(
     <View style={styles.container}>
-        <View style={styles.logo}>
-        <Image source={require('../assets/images/logo.png')} />
-        </View>
         <Text style={styles.textStyle}>User Name</Text> 
         <TextInput 
                 name="userName"
@@ -21,37 +19,36 @@ export default function TicketForm(){
                 style={styles.textBox}
                 multiline={true}
                 variant="standard" />
-        <Button style={styles.submitButton} color="green" title="Login"></Button>        
+        <Button style={styles.submitButton} onPress={loginAPI} color="green" title="Login"></Button>        
     </View>
     );
+}
+
+const loginAPI = () =>{
+    router.navigate("./content/home", { relativeToDirectory: false });
 }
 
 const styles = StyleSheet.create({
     container:{
         backgroundColor: 'white',
-        width: 250,
+        width: 300,
         flexDirection: 'column',
         flexWrap : 'wrap',
-        alignContent: 'space-evenly',
+        alignContent: 'stretch',
         rowGap: 20,
         padding: 20,
-        height: 500,
-        width:300,
-        textAlign:'center'
+        height: 350,
+        textAlign:'center',
+        borderRadius: 20
     },
     textBox:{
         width: '100%'
     },
     submitButton:{
         height:4,
-        color:'green'
+        color:'green',        
     },
     textStyle:{
         fontSize: 15
-    },
-    logo:{
-        alignContent: 'space-evenly',
-        flexDirection: 'column',
-        textAlign:'center'
     }
 });
