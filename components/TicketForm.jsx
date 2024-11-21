@@ -84,8 +84,8 @@ const styles = StyleSheet.create({
         width:300,
         borderRadius: 20,
         position:'absolute',
-        top:100,
-        bottom:30
+        bottom:60,
+        top:150
     },
     textBox:{
         width: '100%'

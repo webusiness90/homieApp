@@ -7,6 +7,9 @@ import React, { useEffect, useState } from 'react';
 import fetchData from '@/api/apibase';
 import axios from 'axios';
 
+import Header from '@/app/Header'
+import Footer from '@/app/Footer'
+
 
   
 export default function HomeScreen(){
@@ -33,6 +36,7 @@ export default function HomeScreen(){
     return (
       
        <SafeAreaView style={styles.container}>
+        <Header />
         <View>
             <Text >
                 Welcome, below are your tickets....
@@ -48,6 +52,7 @@ export default function HomeScreen(){
             </View>))
             } 
         </View>
+        <Footer />
         </SafeAreaView>        
             );
 }

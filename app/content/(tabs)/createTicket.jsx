@@ -2,14 +2,18 @@ import { SafeAreaView  } from 'react-native-safe-area-context';
 import { StyleSheet, Button, Text } from 'react-native';
 import {ThemedText, ThemedView} from '../../../components/ThemedText'
 import  TicketForm from '@/components/TicketForm'
+import Header from '@/app/Header'
+import Footer from '@/app/Footer'
 
 export default function createTicket(){
     return (
     <SafeAreaView style={styles.container}>
+        <Header />
             <Text style={styles.title}> 
                 Create Ticket
             </Text>
         <TicketForm />
+        <Footer />
     </SafeAreaView>);
 }
 
@@ -25,7 +29,7 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontWeight: "bold",
         position:'absolute',
-        top:30
+        top:90
     },
     input: {
         backgroundColor: "#fff",
