@@ -34,14 +34,11 @@ const styles = StyleSheet.create({
         width: 300,
         flexDirection: 'column',
         flexWrap : 'wrap',
-        alignContent: 'stretch',
         rowGap: 20,
         padding: 20,
-        textAlign:'center',
         borderRadius: 20,
-        position:'absolute',
-        bottom:50,
-        top:100
+        height:500,
+        marginTop:50
 
     },
     textBox:{
@@ -52,6 +49,7 @@ const styles = StyleSheet.create({
         color:'green',        
     },
     textStyle:{
-        fontSize: 15
+        fontSize: 15,
+        fontWeight:"bold"
     }
 });

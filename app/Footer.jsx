@@ -11,6 +11,6 @@ export default function Footer(){
 const styles = StyleSheet.create({
     footer:{
         position:'absolute',
-        bottom:20
+        bottom:10
     }
 });

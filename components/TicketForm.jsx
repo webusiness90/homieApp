@@ -1,4 +1,4 @@
-import { View, StyleSheet, Button, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Button, ScrollView } from "react-native";
 import React,{useState, useEffect} from 'react';
 import { Text, TextInput } from "@react-native-material/core";
 import { Formik } from 'formik';
@@ -7,6 +7,7 @@ import {Picker} from '@react-native-picker/picker';
 import axios from 'axios';
 import BASE_URL from '../api/apibase';
 import createTicketSchema from './validation';
+import TicketCategory from "./TicketCategory";
 
 
 export default function TicketForm(){
@@ -37,7 +38,10 @@ export default function TicketForm(){
 
         {({ handleChange, handleBlur, handleSubmit, values, errors, isValid }) => (
 
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
+            <View style={styles.viewContainer}>
+            <Text style={styles.textStyle}>Ticket Category</Text>     
+            <TicketCategory />
             <Text style={styles.textStyle}>Ticket Type</Text>     
             <Picker
                 onValueChange={(itemValue, itemIndex) =>
@@ -66,7 +70,8 @@ export default function TicketForm(){
                 {errors.ticketDesc && <Text style={{ fontSize: 10, color: 'red' }}>{errors.ticketDesc}</Text>}
 
             <Button style={styles.submitButton} color="green" onPress={handleSubmit} title="Create Ticket"></Button>
-        </View>
+            </View>
+        </ScrollView>
          )}
 
          </Formik>
@@ -77,15 +82,16 @@ const styles = StyleSheet.create({
     container:{
         backgroundColor: 'white',
         flexDirection: 'column',
-        flexWrap : 'wrap',
-        alignContent: 'space-evenly',
-        rowGap: 20,
         padding: 20,        
         width:300,
         borderRadius: 20,
-        position:'absolute',
-        bottom:60,
-        top:150
+        marginTop:20
+    },
+    viewContainer:{
+        flexDirection: 'column',
+        flexWrap:"wrap",
+        rowGap:10,
+        height:600
     },
     textBox:{
         width: '100%'
@@ -95,7 +101,8 @@ const styles = StyleSheet.create({
         color:'green'
     },
     textStyle:{
-        fontSize: 15
+        fontSize: 15,
+        fontWeight:"bold"
     }
 });
 

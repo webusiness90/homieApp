@@ -7,19 +7,18 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Login(){
     return (
-    <SafeAreaView style={styles.container}> 
+    <SafeAreaView> 
         <Header />
+        <View style={styles.container}>
         <LoginForm />
-        <Footer />
+        </View>
     </SafeAreaView>);
 }
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: "green",
-      alignItems: "center",
-      justifyContent: "center",
-      rowGap: 15
+      backgroundColor: "#9de0ba",
+      height:"100%",
+      alignItems:"center"
     }
 });
