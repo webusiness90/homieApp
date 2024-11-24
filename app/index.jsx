@@ -7,7 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Login(){
     return (
-    <SafeAreaView> 
+    <SafeAreaView style={{height:"100%"}}> 
         <Header />
         <View style={styles.container}>
         <LoginForm />

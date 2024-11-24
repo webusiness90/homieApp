@@ -1,12 +1,10 @@
 import { Text, StyleSheet, View, ScrollView } from 'react-native';
-import { ThemedView } from '@/components/ThemedView';
 import Card from '@/components/Card'
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import React, { useEffect, useState } from 'react';
 import fetchData from '@/api/apibase';
 import axios from 'axios';
-import { AppBar } from "@react-native-material/core";
 
 import Header from '@/app/Header'
 import Footer from '@/app/Footer'
@@ -35,12 +33,14 @@ export default function HomeScreen(){
   );
 
     return (
-       <SafeAreaView>
+       <SafeAreaView style={{height:"100%"}}>
         <Header />
-        <View style={styles.viewContainer}>
-            <Text >
+        <View style={styles.welcome}>
+        <Text style={{fontWeight:"bold"}}>
                 Welcome, below are your tickets....
-            </Text>
+        </Text>
+        </View>
+        <View style={styles.viewContainer}>
             <ScrollView style={styles.scrollContainer}>
             {data.map(dat=>(
              <View key={dat.ticketId}>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer:{
     height:300,
-    width:300,
+    width:350,
     backgroundColor:"#9de0ba"
   },
   viewContainer:{
@@ -74,6 +74,11 @@ const styles = StyleSheet.create({
   },
   titleColor:{
     color:'#9de0ba'
+  },
+  welcome:{
+    backgroundColor: "#9de0ba",
+    height:40,
+    padding:10
   }
 });
 

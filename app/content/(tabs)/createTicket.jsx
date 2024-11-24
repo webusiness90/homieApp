@@ -7,12 +7,9 @@ import Footer from '@/app/Footer'
 
 export default function createTicket(){
     return (
-    <SafeAreaView>
+    <SafeAreaView style={{height:"100%"}}>
         <Header />
         <View style={styles.container}>
-            <Text style={styles.title}> 
-                Create Ticket
-            </Text>
         <TicketForm />
         </View>
     </SafeAreaView>);
